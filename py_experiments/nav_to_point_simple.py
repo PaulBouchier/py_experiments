@@ -32,8 +32,8 @@ def main():
     goal1_pose.header.frame_id = 'map'
     goal1_pose.header.stamp = navigator.get_clock().now().to_msg()
 
-    goal1_pose.pose.position.x = 0.0
-    goal1_pose.pose.position.y = -1.0
+    goal1_pose.pose.position.x = 1.0
+    goal1_pose.pose.position.y = 1.0
     goal1_pose.pose.orientation.w = 1.0
     goal1_pose.pose.orientation.z = 0.0
 
