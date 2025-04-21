@@ -17,6 +17,7 @@ from geometry_msgs.msg import PoseStamped
 from nav2_simple_commander.robot_navigator import BasicNavigator, TaskResult
 import rclpy
 from rclpy.duration import Duration
+import sys
 
 """
 Basic navigation demo to go to pose.
@@ -61,10 +62,21 @@ def main():
     navigator = BasicNavigator()
     navigator.waitUntilNav2Active()
 
+    if len(sys.argv) != 3:
+        print("Usage: nav_to_point.py <x_coordinate> <y_coordinate>")
+        exit(1)
+
+    try:
+        goal_x = float(sys.argv[1])
+        goal_y = float(sys.argv[2])
+    except ValueError:
+        print("Error: Coordinates must be valid floating-point numbers.")
+        exit(1)
+
     goal1_pose = PoseStamped()
     goal1_pose.header.frame_id = 'map'
-    goal1_pose.pose.position.x = 3.35
-    goal1_pose.pose.position.y = 0.47
+    goal1_pose.pose.position.x = goal_x
+    goal1_pose.pose.position.y = goal_y
     goal1_pose.pose.orientation.w = 1.0
     goal1_pose.pose.orientation.z = 0.0
 
