@@ -23,7 +23,7 @@ setup(
             'node1 = py_experiments.node1:main',
             'callback_group_demo = py_experiments.callback_group_demo:main',
             'timer_test = py_experiments.timer_test:main',
-            'nav_to_point = py_experiments.nav_to_point:main',
+            'nav2pose = py_experiments.nav2pose:main',
             'nav_to_point_simple = py_experiments.nav_to_point_simple:main',
             'example_nav_to_pose = py_experiments.example_nav_to_pose:main',
             'scripted_bot_roto = py_experiments.scripted_bot_roto:main'

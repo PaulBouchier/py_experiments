@@ -28,16 +28,16 @@ def main():
     navigator = BasicNavigator()
     navigator.waitUntilNav2Active()
 
-    goal1_pose = PoseStamped()
-    goal1_pose.header.frame_id = 'map'
-    goal1_pose.header.stamp = navigator.get_clock().now().to_msg()
+    target_pose = PoseStamped()
+    target_pose.header.frame_id = 'map'
+    target_pose.header.stamp = navigator.get_clock().now().to_msg()
 
-    goal1_pose.pose.position.x = 1.0
-    goal1_pose.pose.position.y = 1.0
-    goal1_pose.pose.orientation.w = 1.0
-    goal1_pose.pose.orientation.z = 0.0
+    target_pose.pose.position.x = 0.75
+    target_pose.pose.position.y = 0.3
+    target_pose.pose.orientation.w = -0.707   # 45 degrees in quaternion
+    target_pose.pose.orientation.z = 0.706   # 45 degrees in quaternion
 
-    navigator.goToPose(goal1_pose)
+    navigator.goToPose(target_pose)
 
     try:
         while not navigator.isTaskComplete():
@@ -50,14 +50,12 @@ def main():
         result = navigator.getResult()
         if result == TaskResult.SUCCEEDED:
             print('Goal succeeded!')
-            return True
         elif result == TaskResult.CANCELED:
             print('Goal was canceled!')
         elif result == TaskResult.FAILED:
             print('Goal failed!')
         else:
             print('Goal has an invalid return status!')
-        return False
 
     exit(0)
 
