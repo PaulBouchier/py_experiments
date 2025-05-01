@@ -26,7 +26,8 @@ setup(
             'nav2pose = py_experiments.nav2pose:main',
             'nav_to_point_simple = py_experiments.nav_to_point_simple:main',
             'example_nav_to_pose = py_experiments.example_nav_to_pose:main',
-            'scripted_bot_roto = py_experiments.scripted_bot_roto:main'
+            'scripted_bot_roto = py_experiments.scripted_bot_roto:main',
+            'yaml_parser_node = py_experiments.yaml_parser_node:main', # Add this line
         ],
     },
 )
