@@ -10,6 +10,8 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        # Add this line to install the yaml file into share/py_experiments/resource
+        ('share/' + package_name + '/resource', ['resource/coordinates.yaml']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
